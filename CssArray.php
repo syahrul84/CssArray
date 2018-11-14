@@ -55,7 +55,7 @@ class CssArray {
         $result = array();
         preg_match_all('/(?ims)([a-z0-9\s\,\.\:#_\-@*()\[\]"=]+)\{([^\}]*)\}(?:\s\})?/', $style, $matches);
         foreach ($matches[0] as $content) {
-            $this->processNormalContent($content, $result);
+            $this->processContent($content, $result);
         }
         return $result;
     }
@@ -95,8 +95,10 @@ class CssArray {
         $tmp = explode(';', $style);
         foreach ($tmp as $s) {
             $st = explode(':', $s);
-            if (isset($st[1])) {
-                $result[trim($st[0])] = trim($st[1]);
+            $name = trim(array_shift($st));
+            $val = trim(implode(':', $st));
+            if (!empty($val)) {
+                $result[$name] = $val;
             }
         }
         return $result;
@@ -172,6 +174,9 @@ class CssArray {
 
         //remove import
         $css = preg_replace('/\@import\surl\([^}]*\)\;/m', '', $css);
+
+        //escape base64 images
+        $css = preg_replace('/(data\:[^;]+);/i', '$1#&', $css);
 
         //remove comments
         $css = preg_replace('!/\*.*?\*/!s', '', $css);
