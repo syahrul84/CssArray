@@ -33,6 +33,9 @@ Sample CSS file:
 	h1 {
 	  font-family: Helvetica, Geneva, Arial,
 		SunSans-Regular, sans-serif }
+	#div.navbar {
+	    background: blue;
+	}
 	ul.navbar li {
 	  background: white;
 	  margin: 0.5em 0;
@@ -45,21 +48,80 @@ Sample CSS file:
 	a:visited {
 	  color: purple }
 
+	@media only screen and (max-width: 600px) {
+	  body {
+	      background-color: lightblue;
+	  }
+	}
+	@media screen and (max-width: 500px) {
+	  body {
+	      background-color: lightblue;
+	  }
+	}
+	@media (max-width: 400px) {
+	  body {
+	      background-color: lightblue;
+	  }
+	}
+
 Sample PHP Array Output:
 
 	Array
 	(
+	    [#div] => Array
+		(
+		    [.navbar] => Array
+			(
+			    [background] => blue
+			)
+
+		)
+
+	    [@media] => Array
+		(
+		    [only screen and (max-width: 600px)] => Array
+			(
+			    [body] => Array
+				(
+				    [background-color] => lightblue
+				)
+
+			)
+
+		    [(max-width: 500px)] => Array
+			(
+			    [body] => Array
+				(
+				    [background-color] => lightblue
+				)
+
+			)
+
+		    [(max-width: 400px)] => Array
+			(
+			    [body] => Array
+				(
+				    [background-color] => lightblue
+				)
+
+			)
+
+		)
+
 	    [a] => Array
 		(
 		    [:link] => Array
 			(
 			    [color] => blue 
 			)
+
 		    [:visited] => Array
 			(
 			    [color] => purple 
 			)
+
 		)
+
 	    [body] => Array
 		(
 		    [padding-left] => 11em
@@ -67,27 +129,36 @@ Sample PHP Array Output:
 		    [color] => purple
 		    [background-color] => #d8da3d 
 		)
+
 	    [h1] => Array
 		(
 		    [font-family] => Helvetica, Geneva, Arial, SunSans-Regular, sans-serif 
 		)
-	    [ul.navbar] => Array
+
+	    [ul] => Array
 		(
-		    [list-style-type] => none
-		    [position] => absolute
-		    [top] => 2em
-		    [left] => 1em
-		    [width] => 9em 
-		    [li] => Array
+		    [.navbar] => Array
 			(
-			    [background] => white
-			    [margin] => 0.5em 0
-			    [padding] => 0.3em
-			    [border-right] => 1em solid black 
+			    [list-style-type] => none
+			    [position] => absolute
+			    [top] => 2em
+			    [left] => 1em
+			    [width] => 9em 
+			    [li] => Array
+				(
+				    [background] => white
+				    [margin] => 0 .5em 0
+				    [padding] => 0 .3em
+				    [border-right] => 1em solid black 
+				)
+
+			    [a] => Array
+				(
+				    [text-decoration] => none 
+				)
+
 			)
-		    [a] => Array
-			(
-			    [text-decoration] => none 
-			)
+
 		)
+
 	)
