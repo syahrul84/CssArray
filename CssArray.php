@@ -203,6 +203,8 @@ class CssArray {
             ':hover',
             ':focus',
             '._',
+            '.',
+            '#',
             '@media screen and',
             ') and (',
             '[',
@@ -221,6 +223,8 @@ class CssArray {
             ' :hover',
             ' :focus',
             ' ._',
+            ' .',
+            ' #',
             '@media',
             '), @media (',
             ' ['
