@@ -98,7 +98,11 @@ class CssArray {
             $name = trim(array_shift($st));
             $val = trim(implode(':', $st));
             if (!empty($val)) {
-                $result[$name] = $val;
+                if (substr($val, -1) == '}') {
+                    $result[$name] = substr($val, 0, -1);
+                } else {
+                    $result[$name] = $val;
+                }
             }
         }
         return $result;
