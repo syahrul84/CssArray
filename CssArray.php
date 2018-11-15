@@ -167,6 +167,10 @@ class CssArray {
         return $result;
     }
 
+    private function removeSpace($matches) {
+        return str_replace(' ', '', $matches[0]);
+    }
+
     /**
      * Clean CSS. Normalize the string for this class to process.
      * @param  [string] $css [CSS string]
@@ -231,6 +235,15 @@ class CssArray {
         );
         //update the string
         $css = str_replace($find, $replace, $css);
+
+        //fix number
+        $css = trim(
+            preg_replace_callback(
+                '/\d\s\.\d/m',
+                array($this, 'removeSpace'),
+                $css
+            )
+        );
 
         //trim the strings
         $css = trim(preg_replace('/\s+/',' ', $css));
