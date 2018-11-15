@@ -140,6 +140,8 @@ Sample PHP Array Output:
 		    [.navbar] => Array
 			(
 			    [list-style-type] => none
+			    [padding] => 0
+			    [margin] => 0
 			    [position] => absolute
 			    [top] => 2em
 			    [left] => 1em
@@ -147,8 +149,8 @@ Sample PHP Array Output:
 			    [li] => Array
 				(
 				    [background] => white
-				    [margin] => 0 .5em 0
-				    [padding] => 0 .3em
+				    [margin] => 0.5em 0
+				    [padding] => 0.3em
 				    [border-right] => 1em solid black 
 				)
 
